@@ -1,0 +1,156 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+                 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark gradient-custom2">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Todo</a>
+    
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fas fa-bars text-light"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto d-flex flex-row mt-3 mt-lg-0">
+        <li class="nav-item text-center mx-2 mx-lg-1">
+          <a class="nav-link active" aria-current="page" href="#!">
+            <div>
+              <i class="fas fa-home fa-lg mb-1"></i>
+            </div>
+           
+            
+          </a>
+        </li>
+
+        
+        <a class="nav-item nav-link" href="/logout"><button class="btn btn-info ms-2" >logout</button></a> |
+      
+
+      <!-- Search form -->
+      <form class="d-flex input-group w-auto ms-lg-3 my-3 my-lg-0">
+        <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+        <button class="btn btn-outline-white" type="button" data-mdb-ripple-color="dark">
+          Search
+        </button>
+      </form>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+    <section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+      
+              <div class="card">
+                <div class="card-body p-5">
+      
+                  <form  method='POST'>
+                    <div class="mb-3">
+                      <label for="title" class="fsorm-label">TODO title</label>
+                      <input type="text" class="form-control"  name="note" id="title" aria-describedby="emailHelp">
+                    </div>
+                    <button type="submit" class="btn btn-info ms-2">Add</button>
+                  </form>
+                  <!-- Tabs navs -->
+                  <ul class="nav nav-tabs mb-4 pb-2" id="ex1" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link active" id="ex1-tab-1" data-mdb-toggle="tab" href="#ex1-tabs-1" role="tab"
+                        aria-controls="ex1-tabs-1" aria-selected="true">All</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="ex1-tab-2" data-mdb-toggle="tab" href="#ex1-tabs-2" role="tab"
+                        aria-controls="ex1-tabs-2" aria-selected="false">Active</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <a class="nav-link" id="ex1-tab-3" data-mdb-toggle="tab" href="#ex1-tabs-3" role="tab"
+                        aria-controls="ex1-tabs-3" aria-selected="false">Completed</a>
+                    </li>
+                  </ul>
+                  <!-- Tabs navs -->
+      
+                  <table class="table table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">sno</th>
+                        <th scope="col">Post</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">action</th>
+                        
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                    
+                      {% for note in user.notes %}
+                      <tr>
+                        <th scope="row">{{note.id}}</th>
+                        <td>{{note.data}}</td>
+                        <td>{{note.date}}</td>
+                        <td><a href="/delete/{{note.id}}" type="button" class="btn btn-danger btn-sm mx-1">Delete</button></td>
+                      </tr>
+                      {%endfor%}
+                   
+                     
+                    </tbody>
+                  </table>
+                       
+                    </div>
+                  </div>
+                  <!-- Tabs content -->
+      
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+      {% with messages=get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+  {% for category, message in messages %}
+  {% if category=='error' %}
+  <div class="alert alert-danger">
+    <button aria-hidden="true" onclick="this.parentNode.style.display='none';">&times;</button>
+    {{message}}
+  </div>
+  {% else %}
+
+  <div class="alert alert-success">
+  <button aria-hidden="true" onclick="this.parentNode.style.display='none';">&times;</button>
+    {{message}}
+  </div>
+
+  
+  {%endif%}
+  {%endfor%}
+
+  {% endif %}
+
+  {%endwith%}
+
+   
+    
+</body>
+</html>
