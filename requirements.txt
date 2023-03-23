@@ -48,7 +48,6 @@ jupyter-console==6.6.3
 jupyter-events==0.6.3
 jupyter_client==7.0.2
 jupyter_core==4.8.0
-jupyter_server==4.8.0
 kiwisolver==1.4.4
 langcodes==3.3.0
 MarkupSafe==2.1.2
