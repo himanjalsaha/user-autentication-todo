@@ -48,15 +48,11 @@ jupyter-console==6.6.3
 jupyter-events==0.6.3
 jupyter_client==7.0.2
 jupyter_core==4.8.0
-jupyter_server==2.4.0
-jupyter_server_terminals==0.4.4
-jupyterlab-pygments==0.2.2
-jupyterlab-widgets==3.0.5
+jupyter_server==4.8.0
 kiwisolver==1.4.4
 langcodes==3.3.0
 MarkupSafe==2.1.2
 matplotlib==3.7.1
-matplotlib-inline==0.1.6
 mistune==2.0.5
 murmurhash==1.0.9
 nbclassic==0.5.3
@@ -86,7 +82,6 @@ pydantic==1.10.6
 Pygments==2.14.0
 pyparsing==3.0.9
 pyrsistent==0.19.3
-pytextrank==3.2.4
 python-dateutil==2.8.2
 python-json-logger==2.0.7
 pytz==2022.7.1
