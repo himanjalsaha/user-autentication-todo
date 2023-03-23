@@ -1,3 +1,4 @@
 flask
 Flask-SQLAlchemy
 flask-login
+gunicorn==20.0.4
